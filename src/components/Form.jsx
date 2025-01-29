@@ -15,7 +15,7 @@ const Form = ({ className }) => {
         />
         <Input label="CVC" placeholder="e.g. 123" className="w-1/2" />
       </div>
-      <Button className="h-14 bg-[#220930] text-white rounded-lg" />
+      <Button className="h-14 w-full bg-[#220930] text-white rounded-lg" />
     </form>
   );
 };

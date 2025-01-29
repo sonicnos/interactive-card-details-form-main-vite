@@ -1,29 +1,16 @@
 import "./App.css";
 import Complete from "./components/Complete";
+import Desktop from "./components/Desktop";
 import Form from "./components/Form";
+import Mobile from "./components/Mobile";
 
 function App() {
   return (
-    <div className="h-screen flex flex-col gap-24">
-      <div className="w-full">
-        <img
-          className="w-full"
-          src="../../public/bg-main-mobile.png"
-          alt="background-mobile"
-        />
-        <div className="absolute top-[35px] left-[72px] w-[285px]">
-          <img src="../../bg-card-back.png" alt="card-back" />
-        </div>
-        <div className="absolute top-[125px] left-[16px] w-[285px]">
-          <img
-            className="absolute w-12 top-[19px] left-[22px]"
-            src="../../card-logo.svg"
-            alt="card-logo"
-          />
-          <img src="../../bg-card-front.png" alt="card-back" />
-        </div>
-      </div>
-      <Form className="flex flex-col px-7 gap-6" />
+    <div className="h-screen flex flex-col min-[400px]:gap-5 md:flex-row md:items-center">
+      <Mobile />
+      <Desktop className="w-full min-[400px]:hidden md:flex h-screen" />
+      <Form className="flex flex-col px-7 gap-6 max-w-[500px]" />
+
       {/* <Complete /> */}
     </div>
   );
