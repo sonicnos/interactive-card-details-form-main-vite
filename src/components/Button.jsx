@@ -1,6 +1,6 @@
 import React from "react";
 
-const Button = ({ className }) => {
+const Button = ({ className, children }) => {
   return (
     <button
       className={className}
@@ -9,7 +9,7 @@ const Button = ({ className }) => {
         console.log("btn click");
       }}
     >
-      Confirm
+      {children}
     </button>
   );
 };

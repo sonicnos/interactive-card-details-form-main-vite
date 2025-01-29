@@ -21,7 +21,9 @@ const Form = ({ className }) => {
           e.preventDefault();
           console.log("btn click");
         }}
-      />
+      >
+        Confirm
+      </Button>
     </form>
   );
 };
