@@ -2,7 +2,7 @@ import React from "react";
 import Input from "./Input";
 import Button from "./Button";
 
-const Form = ({ className }) => {
+const Form = ({ className, updateClick }) => {
   return (
     <form className={className}>
       <Input label="Cardholder Name" placeholder="e.g. Jane Appleseed" />
@@ -17,12 +17,9 @@ const Form = ({ className }) => {
       </div>
       <Button
         className="h-14 w-full bg-[#220930] text-white rounded-lg"
-        onclick={(e) => {
-          e.preventDefault();
-          console.log("btn click");
-        }}
+        updateClick={updateClick}
       >
-        Confirm
+        {"Confirm"}
       </Button>
     </form>
   );

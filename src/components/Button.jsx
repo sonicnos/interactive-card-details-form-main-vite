@@ -1,12 +1,21 @@
 import React from "react";
 
-const Button = ({ className, children }) => {
+const Button = ({ className, children, updateClick }) => {
+  const handleClick = () => {
+    if (children === "Confirm") {
+      updateClick(true);
+    }
+
+    if (children === "Continue") {
+      updateClick(false);
+    }
+  };
   return (
     <button
       className={className}
       onClick={(e) => {
         e.preventDefault();
-        console.log("btn click");
+        handleClick();
       }}
     >
       {children}
