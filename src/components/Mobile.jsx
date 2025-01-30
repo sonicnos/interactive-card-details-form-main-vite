@@ -17,6 +17,7 @@ const Mobile = () => {
           src="../../card-logo.svg"
           alt="card-logo"
         />
+        <p className="absolute top-125px">000</p>
         <img src="../../bg-card-front.png" alt="card-back" />
       </div>
     </div>

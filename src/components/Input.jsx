@@ -6,7 +6,7 @@ const Input = ({ className, label, placeholder, inputs }) => {
     <>
       {inputs === 2 ? (
         <div className={`flex flex-col ${className}`}>
-          <label className="uppercase text-sm">{label}</label>
+          <label className="uppercase text-sm mb-2">{label}</label>
           <div className="flex gap-2">
             <input
               className={`${inputClassName} w-1/2`}
@@ -26,7 +26,7 @@ const Input = ({ className, label, placeholder, inputs }) => {
         </div>
       ) : (
         <div className={`flex flex-col ${className}`}>
-          <label className="uppercase text-sm">{label}</label>
+          <label className="uppercase text-sm mb-2">{label}</label>
           <input
             className={inputClassName}
             type="text"

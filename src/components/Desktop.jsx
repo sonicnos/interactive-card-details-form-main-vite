@@ -10,6 +10,7 @@ const Desktop = ({ className }) => {
       />
       <div className="absolute top-[470px] left-[250px] w-[450px]">
         <img src="../../bg-card-back.png" alt="card-back" />
+        <p className="absolute top-[108px] left-[365px] text-white">000</p>
       </div>
       <div className="absolute top-[150px] left-[150px] w-[450px]">
         <img
@@ -17,6 +18,7 @@ const Desktop = ({ className }) => {
           src="../../card-logo.svg"
           alt="card-logo"
         />
+
         <img src="../../bg-card-front.png" alt="card-back" />
       </div>
     </div>
