@@ -8,13 +8,13 @@ const Desktop = ({ className }) => {
         src="../../public/bg-main-desktop.png"
         alt="background-desktop"
       />
-      <div className="absolute top-[470px] left-[250px] w-[450px]">
+      <div className="absolute top-[470px] left-[250px] w-[500px]">
         <img src="../../bg-card-back.png" alt="card-back" />
         <p className="absolute top-[108px] left-[365px] text-white font-bold">
           000
         </p>
       </div>
-      <div className="absolute top-[150px] left-[150px] w-[450px]">
+      <div className="absolute top-[150px] left-[150px] w-[500px]">
         <img
           className="absolute top-[30px] left-[40px]"
           src="../../card-logo.svg"
