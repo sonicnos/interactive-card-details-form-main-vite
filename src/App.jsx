@@ -26,7 +26,7 @@ function App() {
     <div className="h-screen flex flex-col min-[1350px]:gap-5 md:flex-row md:items-center font-primary">
       <Mobile />
       <Desktop className="max-[1350px]:hidden md:flex h-screen" />
-      <div className="flex justify-center items-center h-full w-4/5">
+      <div className="flex justify-center items-center h-full md:w-4/5 px-6">
         {btnClicked ? (
           <Complete updateClick={updateBtnClicked} />
         ) : (
