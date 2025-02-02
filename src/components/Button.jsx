@@ -1,9 +1,21 @@
 import React from "react";
 
-const Button = ({ className, children, updateClick }) => {
+const Button = ({
+  className,
+  children,
+  updateClick,
+  formData,
+  updateError,
+}) => {
   const handleClick = () => {
     if (children === "Confirm") {
       updateClick(true);
+      event.preventDefault();
+      console.log("Form Data:", formData.cardholderName);
+      // if (!formData.cardholderName) {
+
+      // }
+      console.log(updateError.cardholderName);
     }
 
     if (children === "Continue") {
