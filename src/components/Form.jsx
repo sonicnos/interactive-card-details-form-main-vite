@@ -18,7 +18,7 @@ const Form = ({ className, updateClick, updatedFromData }) => {
   });
 
   const inputClassName =
-    "border outline-none border-[#d9d9d9] rounded-lg h-11 p-4 focus:border-[#220930] focus:outline-none";
+    "border outline-none border-[#d9d9d9] rounded-lg h-11 p-4 focus:border-[#220930] focus:outline-none w-full";
   const labelClassName = "uppercase text-xs mb-3 text-[#220930]";
 
   const handleError = (newError) => {
