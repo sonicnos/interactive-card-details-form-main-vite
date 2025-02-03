@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="h-screen flex flex-col min-[1350px]:gap-5 md:flex-row md:items-center font-primary">
-      <Mobile />
+      <Mobile formData={formData} />
       <Desktop
         className="max-[1350px]:hidden md:flex h-screen"
         formData={formData}

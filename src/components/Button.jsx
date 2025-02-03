@@ -25,7 +25,7 @@ const Button = ({
   return (
     <button
       type="submit"
-      className={`${className} hover:opacity-95 cursor-pointer`}
+      className={`${className} hover:opacity-93 cursor-pointer`}
       onClick={(e) => {
         e.preventDefault();
         handleClick();
