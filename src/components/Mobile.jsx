@@ -2,9 +2,9 @@ import React from "react";
 
 const Mobile = ({ formData }) => {
   return (
-    <div className="w-full lg:hidden relative">
+    <div className="w-full lg:hidden relative ">
       <img
-        className="w-full"
+        className="w-full h-6/8 overflow-hidden"
         src="../../public/bg-main-mobile.png"
         alt="background-mobile"
       />
