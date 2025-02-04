@@ -8,13 +8,13 @@ const Mobile = ({ formData }) => {
         src="../../public/bg-main-mobile.png"
         alt="background-mobile"
       />
-      <div className="absolute top-[90px] left-[90px] w-[350px]">
+      <div className="absolute top-[90px] left-[90px] sm:top-[190px] sm:left-[190px] w-[350px]">
         <img src="../../bg-card-back.png" alt="card-back" />
-        <p className="absolute top-[84px] left-[275px] text-white text-sm font-bold">
+        <p className="absolute top-[84px] left-[275px] sm:top-[84px] sm:left-[275px]  text-white text-sm font-bold">
           {!formData.CVC ? "000" : formData.CVC}
         </p>
       </div>
-      <div className="absolute top-[200px] left-[26px] w-[350px]">
+      <div className="absolute top-[200px] left-[26px] sm:top-[300px] sm:left-[126px]  w-[350px]">
         <img
           className="absolute w-12 top-[19px] left-[22px]"
           src="../../card-logo.svg"

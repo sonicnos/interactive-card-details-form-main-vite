@@ -9,13 +9,11 @@ const Button = ({
 }) => {
   const handleClick = () => {
     if (children === "Confirm") {
-      updateClick(true);
+      // updateClick(true);
       event.preventDefault();
-      console.log("Form Data:", formData.cardholderName);
-      // if (!formData.cardholderName) {
-
-      // }
-      console.log(updateError.cardholderName);
+      if (!formData.cardholderName) {
+        updateError({ cardholderName: "is blank" });
+      }
     }
 
     if (children === "Continue") {

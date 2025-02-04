@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import Button from "./Button"; // Make sure to import the Button component
 
 const Form = ({ className, updateClick, updatedFromData }) => {
-  const [error, setError] = useState({
-    cardholderName: false,
-    cardNumber: false,
-    MM: false,
-    YY: false,
-    CVC: false,
-  });
+  const [error, setError] = useState({});
   const [formData, setFormData] = useState({
     cardholderName: "",
     cardNumber: "",
@@ -22,7 +16,9 @@ const Form = ({ className, updateClick, updatedFromData }) => {
   const labelClassName = "uppercase text-xs mb-3 text-[#220930]";
 
   const handleError = (newError) => {
+    console.log(newError);
     const { name, value } = newError;
+    console.log(name);
     setError((prevError) => ({
       ...prevError,
       [name]: value,
@@ -46,6 +42,7 @@ const Form = ({ className, updateClick, updatedFromData }) => {
     console.log("Form Data:", formData);
   };
 
+  // console.log("form.jsx: " + JSON.stringify(error));
   return (
     <form onSubmit={handleSubmit} className={className}>
       <div className="flex flex-col gap-8">
@@ -55,10 +52,12 @@ const Form = ({ className, updateClick, updatedFromData }) => {
             className={inputClassName}
             type="text"
             name="cardholderName"
+            maxLength={29}
             value={formData.cardholderName}
             onChange={handleChange}
             placeholder="e.g. Jane Appleseed"
           />
+          {error.cardholderName && <p>{error.cardholderName}</p>}
         </div>
         <div className="flex flex-col">
           <label className={labelClassName}>{"Card Number"}</label>
@@ -66,6 +65,7 @@ const Form = ({ className, updateClick, updatedFromData }) => {
             className={inputClassName}
             type="text"
             name="cardNumber"
+            maxLength={16}
             value={formData.cardNumber}
             onChange={handleChange}
             placeholder="e.g. 1234 5678 9123 0000"
@@ -79,6 +79,7 @@ const Form = ({ className, updateClick, updatedFromData }) => {
                 className={`${inputClassName} w-1/2 `}
                 type="text"
                 name="MM"
+                maxLength={2}
                 value={formData.MM}
                 onChange={handleChange}
                 placeholder="MM"
@@ -87,6 +88,7 @@ const Form = ({ className, updateClick, updatedFromData }) => {
                 className={`${inputClassName} w-1/2`}
                 type="text"
                 name="YY"
+                maxLength={2}
                 value={formData.YY}
                 onChange={handleChange}
                 placeholder="YY"
@@ -102,6 +104,7 @@ const Form = ({ className, updateClick, updatedFromData }) => {
               value={formData.CVC}
               onChange={handleChange}
               placeholder="e.g. 123"
+              maxLength={3}
             />
           </div>
         </div>

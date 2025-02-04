@@ -14,7 +14,6 @@ function App() {
 
   const handleFormData = (data) => {
     setFormData(data);
-    console.log("app data " + JSON.stringify(data));
   };
 
   return (
