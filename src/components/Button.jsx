@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Button = ({
   className,
@@ -6,13 +6,48 @@ const Button = ({
   updateClick,
   formData,
   updateError,
+  error,
 }) => {
-  const handleClick = () => {
+  const [errorInit, setErrorInit] = useState({
+    cardholderName: "",
+    cardNumber: "",
+    MM: "",
+    YY: "",
+    CVC: "",
+  });
+
+  const handleClick = (event) => {
+    event.preventDefault();
     if (children === "Confirm") {
-      // updateClick(true);
-      event.preventDefault();
       if (!formData.cardholderName) {
-        updateError({ cardholderName: "is blank" });
+        updateError({
+          ...errorInit,
+          cardholderName: "is blank",
+        });
+      }
+      if (!formData.cardNumber) {
+        updateError({
+          ...errorInit,
+          cardNumber: "is blank",
+        });
+      }
+      if (!formData.MM) {
+        updateError({
+          ...errorInit,
+          MM: "is blank",
+        });
+      }
+      if (!formData.YY) {
+        updateError({
+          ...errorInit,
+          YY: "is blank",
+        });
+      }
+      if (!formData.CVC) {
+        updateError({
+          ...errorInit,
+          CVC: "is blank",
+        });
       }
     }
 
@@ -20,14 +55,12 @@ const Button = ({
       updateClick(false);
     }
   };
+
   return (
     <button
       type="submit"
       className={`${className} hover:opacity-93 cursor-pointer`}
-      onClick={(e) => {
-        e.preventDefault();
-        handleClick();
-      }}
+      onClick={handleClick}
     >
       {children}
     </button>

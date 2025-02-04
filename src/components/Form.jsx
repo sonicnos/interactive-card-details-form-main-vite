@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 import Button from "./Button"; // Make sure to import the Button component
+import Error from "./Error";
 
 const Form = ({ className, updateClick, updatedFromData }) => {
-  const [error, setError] = useState({});
+  const [error, setError] = useState({
+    cardholderName: "",
+    cardNumber: "",
+    MM: "",
+    YY: "",
+    CVC: "",
+  });
+
   const [formData, setFormData] = useState({
     cardholderName: "",
     cardNumber: "",
@@ -16,9 +24,8 @@ const Form = ({ className, updateClick, updatedFromData }) => {
   const labelClassName = "uppercase text-xs mb-3 text-[#220930]";
 
   const handleError = (newError) => {
-    console.log(newError);
-    const { name, value } = newError;
-    console.log(name);
+    const [[name, value]] = Object.entries(newError);
+
     setError((prevError) => ({
       ...prevError,
       [name]: value,
@@ -42,7 +49,7 @@ const Form = ({ className, updateClick, updatedFromData }) => {
     console.log("Form Data:", formData);
   };
 
-  // console.log("form.jsx: " + JSON.stringify(error));
+  console.log("form.jsx: " + JSON.stringify(error));
   return (
     <form onSubmit={handleSubmit} className={className}>
       <div className="flex flex-col gap-8">
@@ -57,7 +64,7 @@ const Form = ({ className, updateClick, updatedFromData }) => {
             onChange={handleChange}
             placeholder="e.g. Jane Appleseed"
           />
-          {error.cardholderName && <p>{error.cardholderName}</p>}
+          {error.cardholderName && <Error text={error.cardholderName} />}
         </div>
         <div className="flex flex-col">
           <label className={labelClassName}>{"Card Number"}</label>
@@ -70,29 +77,36 @@ const Form = ({ className, updateClick, updatedFromData }) => {
             onChange={handleChange}
             placeholder="e.g. 1234 5678 9123 0000"
           />
+          {error.cardNumber && <Error text={error.cardNumber} />}
         </div>
         <div className="flex gap-5">
           <div className="flex flex-col">
             <label className={labelClassName}>{"Exp. Date (MM/YY)"}</label>
             <div className="flex gap-2 ">
-              <input
-                className={`${inputClassName} w-1/2 `}
-                type="text"
-                name="MM"
-                maxLength={2}
-                value={formData.MM}
-                onChange={handleChange}
-                placeholder="MM"
-              />
-              <input
-                className={`${inputClassName} w-1/2`}
-                type="text"
-                name="YY"
-                maxLength={2}
-                value={formData.YY}
-                onChange={handleChange}
-                placeholder="YY"
-              />
+              <div className="flex flex-col">
+                <input
+                  className={`${inputClassName} w-1/2 `}
+                  type="text"
+                  name="MM"
+                  maxLength={2}
+                  value={formData.MM}
+                  onChange={handleChange}
+                  placeholder="MM"
+                />
+                {error.MM && <Error text={error.MM} />}
+              </div>
+              <div className="flex flex-col">
+                <input
+                  className={`${inputClassName} w-1/2`}
+                  type="text"
+                  name="YY"
+                  maxLength={2}
+                  value={formData.YY}
+                  onChange={handleChange}
+                  placeholder="YY"
+                />
+                {error.YY && <Error text={error.YY} />}
+              </div>
             </div>
           </div>
           <div className="flex flex-col">
@@ -106,6 +120,7 @@ const Form = ({ className, updateClick, updatedFromData }) => {
               placeholder="e.g. 123"
               maxLength={3}
             />
+            {error.CVC && <Error text={error.CVC} />}
           </div>
         </div>
       </div>
@@ -115,6 +130,7 @@ const Form = ({ className, updateClick, updatedFromData }) => {
         updateClick={updateClick}
         formData={formData}
         updateError={handleError}
+        error={error}
       >
         {"Confirm"}
       </Button>
